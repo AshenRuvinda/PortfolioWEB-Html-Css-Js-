@@ -511,23 +511,28 @@
                     </div>
                 </div>
                 <div class="col-lg-7" data-aos="fade-left">
-                    <form class="contact-form">
+                    <form class="contact-form" action="https://formspree.io/f/mzzrovvy" method="POST">
                         <div class="row">
                             <div class="col-md-6 mb-4">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
+                                <input name="name" type="text" class="form-control" placeholder="Your Name" required>
                             </div>
                             <div class="col-md-6 mb-4">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                <input name="email" type="email" class="form-control" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="mb-4">
-                            <input type="text" class="form-control" placeholder="Subject" required>
+                            <input name="subject" type="text" class="form-control" placeholder="Subject" required>
                         </div>
                         <div class="mb-4">
-                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
                         </div>
+                    
+                        <!-- Optional: Success message display (JavaScript needed to show this after submit) -->
+                        <div id="form-message" class="mb-3" style="display: none; color: green;">Message sent successfully!</div>
+                    
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
+                    
                 </div>
             </div>
         </div>
@@ -566,8 +571,8 @@
                             <li><a href="#">Web Development</a></li>
                             <li><a href="#">Mobile App Development</a></li>
                             <li><a href="#">Database Design</a></li>
-                            <li><a href="#">Cloud Solutions</a></li>
-                            <li><a href="#">DevOps</a></li>
+                            <li><a href="#">Digital Design</a></li>
+                            <li><a href="#">Video Editing</a></li>
                         </ul>
                     </div>
                 </div>

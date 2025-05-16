@@ -177,31 +177,26 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', highlightNavigation);
 
     // Form submission handling with mobile-friendly alert
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Clear form inputs
-            const formControls = contactForm.querySelectorAll('.form-control');
-            formControls.forEach(control => {
-                control.value = '';
-            });
-
-            // Create and show alert
-            const alertDiv = document.createElement('div');
-            alertDiv.className = 'alert alert-success mt-3';
-            alertDiv.style.fontSize = window.innerWidth < 576 ? '0.9rem' : '1rem'; // Smaller font on mobile
-            alertDiv.style.padding = window.innerWidth < 576 ? '10px' : '15px';
-            alertDiv.textContent = 'Your message has been sent successfully!';
-            contactForm.appendChild(alertDiv);
-
-            // Remove alert after 3 seconds
-            setTimeout(() => {
-                alertDiv.remove();
-            }, 3000);
+    
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = e.target;
+    
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                document.getElementById('form-message').style.display = 'block';
+                form.reset();
+            } else {
+                alert("Oops! Something went wrong.");
+            }
         });
-    }
+    });
+    
+    
 
     // Animate skill bars when they come into view with mobile adjustments
     function animateSkillBars() {
